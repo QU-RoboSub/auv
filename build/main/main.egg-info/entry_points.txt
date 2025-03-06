@@ -1,0 +1,4 @@
+[console_scripts]
+missionControl = main.missionControl:main
+navigation = main.navigation:main
+

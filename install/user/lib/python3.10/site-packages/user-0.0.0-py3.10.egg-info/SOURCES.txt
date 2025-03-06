@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../../build/user/user.egg-info/PKG-INFO
+../../build/user/user.egg-info/SOURCES.txt
+../../build/user/user.egg-info/dependency_links.txt
+../../build/user/user.egg-info/entry_points.txt
+../../build/user/user.egg-info/requires.txt
+../../build/user/user.egg-info/top_level.txt
+../../build/user/user.egg-info/zip-safe
+resource/user
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
+user/__init__.py
+user/input.py
+user/interface.py

@@ -1,0 +1,26 @@
+[0.000000] (-) TimerEvent: {}
+[0.000756] (control) JobQueued: {'identifier': 'control', 'dependencies': OrderedDict()}
+[0.001000] (main) JobQueued: {'identifier': 'main', 'dependencies': OrderedDict()}
+[0.001241] (sensors) JobQueued: {'identifier': 'sensors', 'dependencies': OrderedDict()}
+[0.001316] (user) JobQueued: {'identifier': 'user', 'dependencies': OrderedDict()}
+[0.001383] (control) JobStarted: {'identifier': 'control'}
+[0.013799] (main) JobStarted: {'identifier': 'main'}
+[0.022161] (sensors) JobStarted: {'identifier': 'sensors'}
+[0.030390] (user) JobStarted: {'identifier': 'user'}
+[0.099395] (-) TimerEvent: {}
+[0.199921] (-) TimerEvent: {}
+[0.300610] (-) TimerEvent: {}
+[0.310351] (control) JobEnded: {'identifier': 'control', 'rc': 0}
+[0.400740] (-) TimerEvent: {}
+[0.501214] (-) TimerEvent: {}
+[0.601692] (-) TimerEvent: {}
+[0.702145] (-) TimerEvent: {}
+[0.802633] (-) TimerEvent: {}
+[0.903323] (-) TimerEvent: {}
+[1.004067] (-) TimerEvent: {}
+[1.104791] (-) TimerEvent: {}
+[1.205495] (-) TimerEvent: {}
+[1.263652] (main) JobEnded: {'identifier': 'main', 'rc': 'SIGINT'}
+[1.265413] (user) JobEnded: {'identifier': 'user', 'rc': 'SIGINT'}
+[1.266373] (sensors) JobEnded: {'identifier': 'sensors', 'rc': 'SIGINT'}
+[1.276168] (-) EventReactorShutdown: {}

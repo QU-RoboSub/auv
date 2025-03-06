@@ -1,0 +1,37 @@
+running egg_info
+creating ../../build/user/user.egg-info
+writing ../../build/user/user.egg-info/PKG-INFO
+writing dependency_links to ../../build/user/user.egg-info/dependency_links.txt
+writing entry points to ../../build/user/user.egg-info/entry_points.txt
+writing requirements to ../../build/user/user.egg-info/requires.txt
+writing top-level names to ../../build/user/user.egg-info/top_level.txt
+writing manifest file '../../build/user/user.egg-info/SOURCES.txt'
+reading manifest file '../../build/user/user.egg-info/SOURCES.txt'
+writing manifest file '../../build/user/user.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/quauv/auv/build/user/build
+creating /home/quauv/auv/build/user/build/lib
+creating /home/quauv/auv/build/user/build/lib/user
+copying user/__init__.py -> /home/quauv/auv/build/user/build/lib/user
+copying user/input.py -> /home/quauv/auv/build/user/build/lib/user
+copying user/interface.py -> /home/quauv/auv/build/user/build/lib/user
+running install
+running install_lib
+creating /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+copying /home/quauv/auv/build/user/build/lib/user/__init__.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+copying /home/quauv/auv/build/user/build/lib/user/input.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+copying /home/quauv/auv/build/user/build/lib/user/interface.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/input.py to input.cpython-310.pyc
+byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/interface.py to interface.cpython-310.pyc
+running install_data
+creating /home/quauv/auv/install/user/share/ament_index
+creating /home/quauv/auv/install/user/share/ament_index/resource_index
+creating /home/quauv/auv/install/user/share/ament_index/resource_index/packages
+copying resource/user -> /home/quauv/auv/install/user/share/ament_index/resource_index/packages
+copying package.xml -> /home/quauv/auv/install/user/share/user
+running install_egg_info
+Copying ../../build/user/user.egg-info to /home/quauv/auv/install/user/lib/python3.10/site-packages/user-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/quauv/auv/build/user/install.log'

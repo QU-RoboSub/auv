@@ -1,0 +1,28 @@
+[2.510s] Invoking command in '/home/quauv/auv/src/main': PYTHONPATH=/home/quauv/auv/build/main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/main build --build-base /home/quauv/auv/build/main/build install --record /home/quauv/auv/build/main/install.log --single-version-externally-managed install_data
+[2.916s] running egg_info
+[2.918s] writing ../../build/main/main.egg-info/PKG-INFO
+[2.918s] writing dependency_links to ../../build/main/main.egg-info/dependency_links.txt
+[2.918s] writing entry points to ../../build/main/main.egg-info/entry_points.txt
+[2.918s] writing requirements to ../../build/main/main.egg-info/requires.txt
+[2.919s] writing top-level names to ../../build/main/main.egg-info/top_level.txt
+[2.922s] reading manifest file '../../build/main/main.egg-info/SOURCES.txt'
+[2.923s] writing manifest file '../../build/main/main.egg-info/SOURCES.txt'
+[2.923s] running build
+[2.923s] running build_py
+[2.924s] copying main/navigation.py -> /home/quauv/auv/build/main/build/lib/main
+[2.924s] copying main/missionControl.py -> /home/quauv/auv/build/main/build/lib/main
+[2.924s] running install
+[2.925s] running install_lib
+[2.926s] copying /home/quauv/auv/build/main/build/lib/main/navigation.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main
+[2.926s] copying /home/quauv/auv/build/main/build/lib/main/missionControl.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main
+[2.927s] byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/navigation.py to navigation.cpython-310.pyc
+[2.929s] byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/missionControl.py to missionControl.cpython-310.pyc
+[2.930s] running install_data
+[2.931s] running install_egg_info
+[2.934s] removing '/home/quauv/auv/install/main/lib/python3.10/site-packages/main-0.0.0-py3.10.egg-info' (and everything under it)
+[2.934s] Copying ../../build/main/main.egg-info to /home/quauv/auv/install/main/lib/python3.10/site-packages/main-0.0.0-py3.10.egg-info
+[2.936s] running install_scripts
+[2.969s] Installing missionControl script to /home/quauv/auv/install/main/lib/main
+[2.969s] Installing navigation script to /home/quauv/auv/install/main/lib/main
+[2.970s] writing list of installed files to '/home/quauv/auv/build/main/install.log'
+[3.053s] Invoked command in '/home/quauv/auv/src/main' returned '0': PYTHONPATH=/home/quauv/auv/build/main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/main build --build-base /home/quauv/auv/build/main/build install --record /home/quauv/auv/build/main/install.log --single-version-externally-managed install_data

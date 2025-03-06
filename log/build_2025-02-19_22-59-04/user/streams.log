@@ -1,0 +1,39 @@
+[2.465s] Invoking command in '/home/quauv/auv/src/user': PYTHONPATH=/home/quauv/auv/build/user/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/user/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/user build --build-base /home/quauv/auv/build/user/build install --record /home/quauv/auv/build/user/install.log --single-version-externally-managed install_data
+[2.859s] running egg_info
+[2.860s] creating ../../build/user/user.egg-info
+[2.861s] writing ../../build/user/user.egg-info/PKG-INFO
+[2.861s] writing dependency_links to ../../build/user/user.egg-info/dependency_links.txt
+[2.861s] writing entry points to ../../build/user/user.egg-info/entry_points.txt
+[2.861s] writing requirements to ../../build/user/user.egg-info/requires.txt
+[2.862s] writing top-level names to ../../build/user/user.egg-info/top_level.txt
+[2.862s] writing manifest file '../../build/user/user.egg-info/SOURCES.txt'
+[2.864s] reading manifest file '../../build/user/user.egg-info/SOURCES.txt'
+[2.865s] writing manifest file '../../build/user/user.egg-info/SOURCES.txt'
+[2.866s] running build
+[2.866s] running build_py
+[2.866s] creating /home/quauv/auv/build/user/build
+[2.866s] creating /home/quauv/auv/build/user/build/lib
+[2.866s] creating /home/quauv/auv/build/user/build/lib/user
+[2.866s] copying user/__init__.py -> /home/quauv/auv/build/user/build/lib/user
+[2.866s] copying user/input.py -> /home/quauv/auv/build/user/build/lib/user
+[2.866s] copying user/interface.py -> /home/quauv/auv/build/user/build/lib/user
+[2.867s] running install
+[2.867s] running install_lib
+[2.868s] creating /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+[2.868s] copying /home/quauv/auv/build/user/build/lib/user/__init__.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+[2.868s] copying /home/quauv/auv/build/user/build/lib/user/input.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+[2.869s] copying /home/quauv/auv/build/user/build/lib/user/interface.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+[2.870s] byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/__init__.py to __init__.cpython-310.pyc
+[2.870s] byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/input.py to input.cpython-310.pyc
+[2.870s] byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/interface.py to interface.cpython-310.pyc
+[2.870s] running install_data
+[2.871s] creating /home/quauv/auv/install/user/share/ament_index
+[2.871s] creating /home/quauv/auv/install/user/share/ament_index/resource_index
+[2.871s] creating /home/quauv/auv/install/user/share/ament_index/resource_index/packages
+[2.871s] copying resource/user -> /home/quauv/auv/install/user/share/ament_index/resource_index/packages
+[2.871s] copying package.xml -> /home/quauv/auv/install/user/share/user
+[2.871s] running install_egg_info
+[2.874s] Copying ../../build/user/user.egg-info to /home/quauv/auv/install/user/lib/python3.10/site-packages/user-0.0.0-py3.10.egg-info
+[2.876s] running install_scripts
+[2.907s] writing list of installed files to '/home/quauv/auv/build/user/install.log'
+[3.006s] Invoked command in '/home/quauv/auv/src/user' returned '0': PYTHONPATH=/home/quauv/auv/build/user/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/user/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/user build --build-base /home/quauv/auv/build/user/build install --record /home/quauv/auv/build/user/install.log --single-version-externally-managed install_data

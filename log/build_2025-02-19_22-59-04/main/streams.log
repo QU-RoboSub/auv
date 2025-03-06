@@ -1,0 +1,41 @@
+[2.474s] Invoking command in '/home/quauv/auv/src/main': PYTHONPATH=/home/quauv/auv/build/main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/main build --build-base /home/quauv/auv/build/main/build install --record /home/quauv/auv/build/main/install.log --single-version-externally-managed install_data
+[2.857s] running egg_info
+[2.857s] creating ../../build/main/main.egg-info
+[2.858s] writing ../../build/main/main.egg-info/PKG-INFO
+[2.858s] writing dependency_links to ../../build/main/main.egg-info/dependency_links.txt
+[2.858s] writing entry points to ../../build/main/main.egg-info/entry_points.txt
+[2.858s] writing requirements to ../../build/main/main.egg-info/requires.txt
+[2.858s] writing top-level names to ../../build/main/main.egg-info/top_level.txt
+[2.859s] writing manifest file '../../build/main/main.egg-info/SOURCES.txt'
+[2.862s] reading manifest file '../../build/main/main.egg-info/SOURCES.txt'
+[2.863s] writing manifest file '../../build/main/main.egg-info/SOURCES.txt'
+[2.863s] running build
+[2.863s] running build_py
+[2.863s] creating /home/quauv/auv/build/main/build
+[2.864s] creating /home/quauv/auv/build/main/build/lib
+[2.864s] creating /home/quauv/auv/build/main/build/lib/main
+[2.864s] copying main/__init__.py -> /home/quauv/auv/build/main/build/lib/main
+[2.864s] copying main/navigation.py -> /home/quauv/auv/build/main/build/lib/main
+[2.864s] copying main/missionControl.py -> /home/quauv/auv/build/main/build/lib/main
+[2.864s] running install
+[2.865s] running install_lib
+[2.866s] creating /home/quauv/auv/install/main/lib/python3.10/site-packages/main
+[2.866s] copying /home/quauv/auv/build/main/build/lib/main/__init__.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main
+[2.866s] copying /home/quauv/auv/build/main/build/lib/main/navigation.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main
+[2.866s] copying /home/quauv/auv/build/main/build/lib/main/missionControl.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main
+[2.867s] byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/__init__.py to __init__.cpython-310.pyc
+[2.868s] byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/navigation.py to navigation.cpython-310.pyc
+[2.868s] byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/missionControl.py to missionControl.cpython-310.pyc
+[2.869s] running install_data
+[2.870s] creating /home/quauv/auv/install/main/share/ament_index
+[2.870s] creating /home/quauv/auv/install/main/share/ament_index/resource_index
+[2.870s] creating /home/quauv/auv/install/main/share/ament_index/resource_index/packages
+[2.870s] copying resource/main -> /home/quauv/auv/install/main/share/ament_index/resource_index/packages
+[2.870s] copying package.xml -> /home/quauv/auv/install/main/share/main
+[2.870s] running install_egg_info
+[2.872s] Copying ../../build/main/main.egg-info to /home/quauv/auv/install/main/lib/python3.10/site-packages/main-0.0.0-py3.10.egg-info
+[2.874s] running install_scripts
+[2.902s] Installing missionControl script to /home/quauv/auv/install/main/lib/main
+[2.903s] Installing navigation script to /home/quauv/auv/install/main/lib/main
+[2.903s] writing list of installed files to '/home/quauv/auv/build/main/install.log'
+[2.963s] Invoked command in '/home/quauv/auv/src/main' returned '0': PYTHONPATH=/home/quauv/auv/build/main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/main build --build-base /home/quauv/auv/build/main/build install --record /home/quauv/auv/build/main/install.log --single-version-externally-managed install_data

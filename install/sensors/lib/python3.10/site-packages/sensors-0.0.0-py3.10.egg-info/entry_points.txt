@@ -1,0 +1,4 @@
+[console_scripts]
+bottomCam = sensors.bottomCam:main
+frontCam = sensors.frontCam:main
+

@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/quauv/prequalAuv/install/sensors/lib/python3.10/site-packages",
+        "/home/quauv/prequalAuv/install/control/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/quauv/prequalAuv/install/sensors/lib/python3.10/site-packages",
+        "/home/quauv/prequalAuv/install/control/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

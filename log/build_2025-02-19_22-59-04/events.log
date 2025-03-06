@@ -1,0 +1,202 @@
+[0.000000] (-) TimerEvent: {}
+[0.000464] (control) JobQueued: {'identifier': 'control', 'dependencies': OrderedDict()}
+[0.000575] (main) JobQueued: {'identifier': 'main', 'dependencies': OrderedDict()}
+[0.000696] (sensors) JobQueued: {'identifier': 'sensors', 'dependencies': OrderedDict()}
+[0.000765] (user) JobQueued: {'identifier': 'user', 'dependencies': OrderedDict()}
+[0.000841] (control) JobStarted: {'identifier': 'control'}
+[0.013771] (main) JobStarted: {'identifier': 'main'}
+[0.020874] (sensors) JobStarted: {'identifier': 'sensors'}
+[0.028728] (user) JobStarted: {'identifier': 'user'}
+[0.098851] (-) TimerEvent: {}
+[0.199551] (-) TimerEvent: {}
+[0.300196] (-) TimerEvent: {}
+[0.400872] (-) TimerEvent: {}
+[0.501547] (-) TimerEvent: {}
+[0.602183] (-) TimerEvent: {}
+[0.702588] (-) TimerEvent: {}
+[0.802996] (-) TimerEvent: {}
+[0.903415] (-) TimerEvent: {}
+[1.003918] (-) TimerEvent: {}
+[1.104594] (-) TimerEvent: {}
+[1.205286] (-) TimerEvent: {}
+[1.306007] (-) TimerEvent: {}
+[1.407580] (-) TimerEvent: {}
+[1.509068] (-) TimerEvent: {}
+[1.609755] (-) TimerEvent: {}
+[1.710338] (-) TimerEvent: {}
+[1.811039] (-) TimerEvent: {}
+[1.911701] (-) TimerEvent: {}
+[2.012165] (-) TimerEvent: {}
+[2.112622] (-) TimerEvent: {}
+[2.213086] (-) TimerEvent: {}
+[2.313574] (-) TimerEvent: {}
+[2.414076] (-) TimerEvent: {}
+[2.475940] (sensors) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/sensors', 'build', '--build-base', '/home/quauv/auv/build/sensors/build', 'install', '--record', '/home/quauv/auv/build/sensors/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/quauv/auv/src/sensors', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'quauv', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.2/lib64:', 'HOME': '/home/quauv', 'OLDPWD': '/home/quauv', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2369', 'SYSTEMD_EXEC_PID': '2542', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3312', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/quauv/auv/install:/home/quauv/prequalAuv/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'quauv', 'JOURNAL_STREAM': '8:51450', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'quauv', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/usr/local/cuda-12.2/bin:/home/quauv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/quauv/Luxonis/depthai/entrypoint', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/2514,unix/ubuntu:/tmp/.ICE-unix/2514', 'INVOCATION_ID': 'b39d005119854044948792baf9177fe0', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/quauv/prequalAuv/install/sensors:/home/quauv/prequalAuv/install/control:/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:5f7b56eb-c411-417c-b548-544a3d26d625', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/quauv/auv/build/sensors', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/quauv/auv/build/sensors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/sensors/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/sensors/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/control/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.484015] (main) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/main', 'build', '--build-base', '/home/quauv/auv/build/main/build', 'install', '--record', '/home/quauv/auv/build/main/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/quauv/auv/src/main', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'quauv', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.2/lib64:', 'HOME': '/home/quauv', 'OLDPWD': '/home/quauv', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2369', 'SYSTEMD_EXEC_PID': '2542', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3312', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/quauv/auv/install:/home/quauv/prequalAuv/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'quauv', 'JOURNAL_STREAM': '8:51450', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'quauv', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/usr/local/cuda-12.2/bin:/home/quauv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/quauv/Luxonis/depthai/entrypoint', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/2514,unix/ubuntu:/tmp/.ICE-unix/2514', 'INVOCATION_ID': 'b39d005119854044948792baf9177fe0', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/quauv/prequalAuv/install/sensors:/home/quauv/prequalAuv/install/control:/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:5f7b56eb-c411-417c-b548-544a3d26d625', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/quauv/auv/build/main', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/quauv/auv/build/main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/main/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/sensors/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/control/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.490965] (user) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/user', 'build', '--build-base', '/home/quauv/auv/build/user/build', 'install', '--record', '/home/quauv/auv/build/user/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/quauv/auv/src/user', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'quauv', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.2/lib64:', 'HOME': '/home/quauv', 'OLDPWD': '/home/quauv', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2369', 'SYSTEMD_EXEC_PID': '2542', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3312', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/quauv/auv/install:/home/quauv/prequalAuv/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'quauv', 'JOURNAL_STREAM': '8:51450', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'quauv', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/usr/local/cuda-12.2/bin:/home/quauv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/quauv/Luxonis/depthai/entrypoint', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/2514,unix/ubuntu:/tmp/.ICE-unix/2514', 'INVOCATION_ID': 'b39d005119854044948792baf9177fe0', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/quauv/prequalAuv/install/sensors:/home/quauv/prequalAuv/install/control:/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:5f7b56eb-c411-417c-b548-544a3d26d625', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/quauv/auv/build/user', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/quauv/auv/build/user/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/user/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/sensors/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/control/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.496244] (control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/control', 'build', '--build-base', '/home/quauv/auv/build/control/build', 'install', '--record', '/home/quauv/auv/build/control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/quauv/auv/src/control', 'env': {'GJS_DEBUG_TOPICS': 'JS ERROR;JS LOG', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'quauv', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib:/usr/local/cuda-12.2/lib64:', 'HOME': '/home/quauv', 'OLDPWD': '/home/quauv', 'DESKTOP_SESSION': 'ubuntu', 'GIO_LAUNCHED_DESKTOP_FILE': '/usr/share/applications/terminator.desktop', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'MANAGERPID': '2369', 'SYSTEMD_EXEC_PID': '2542', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'TERMINATOR_DBUS_NAME': 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f', 'GIO_LAUNCHED_DESKTOP_FILE_PID': '3312', 'IM_CONFIG_PHASE': '1', 'COLCON_PREFIX_PATH': '/home/quauv/auv/install:/home/quauv/prequalAuv/install', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'quauv', 'JOURNAL_STREAM': '8:51450', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'quauv', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/usr/local/cuda-12.2/bin:/home/quauv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/quauv/Luxonis/depthai/entrypoint', 'SESSION_MANAGER': 'local/ubuntu:@/tmp/.ICE-unix/2514,unix/ubuntu:/tmp/.ICE-unix/2514', 'INVOCATION_ID': 'b39d005119854044948792baf9177fe0', 'XDG_MENU_PREFIX': 'gnome-', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'TERMINATOR_DBUS_PATH': '/net/tenshu/Terminator2', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'IBUS_DISABLE_SNOOPER': '1', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/quauv/prequalAuv/install/sensors:/home/quauv/prequalAuv/install/control:/opt/ros/humble', 'SHELL': '/bin/bash', 'TERMINATOR_UUID': 'urn:uuid:5f7b56eb-c411-417c-b548-544a3d26d625', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'GJS_DEBUG_OUTPUT': 'stderr', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/quauv/auv/build/control', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/quauv/auv/build/control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/control/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/sensors/lib/python3.10/site-packages:/home/quauv/prequalAuv/install/control/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.514162] (-) TimerEvent: {}
+[2.614575] (-) TimerEvent: {}
+[2.714997] (-) TimerEvent: {}
+[2.815435] (-) TimerEvent: {}
+[2.870252] (main) StdoutLine: {'line': b'running egg_info\n'}
+[2.870992] (main) StdoutLine: {'line': b'creating ../../build/main/main.egg-info\n'}
+[2.871280] (main) StdoutLine: {'line': b'writing ../../build/main/main.egg-info/PKG-INFO\n'}
+[2.871640] (main) StdoutLine: {'line': b'writing dependency_links to ../../build/main/main.egg-info/dependency_links.txt\n'}
+[2.871811] (main) StdoutLine: {'line': b'writing entry points to ../../build/main/main.egg-info/entry_points.txt\n'}
+[2.871967] (main) StdoutLine: {'line': b'writing requirements to ../../build/main/main.egg-info/requires.txt\n'}
+[2.872079] (main) StdoutLine: {'line': b'writing top-level names to ../../build/main/main.egg-info/top_level.txt\n'}
+[2.872397] (main) StdoutLine: {'line': b"writing manifest file '../../build/main/main.egg-info/SOURCES.txt'\n"}
+[2.875805] (main) StdoutLine: {'line': b"reading manifest file '../../build/main/main.egg-info/SOURCES.txt'\n"}
+[2.876722] (sensors) StdoutLine: {'line': b'running egg_info\n'}
+[2.876858] (main) StdoutLine: {'line': b"writing manifest file '../../build/main/main.egg-info/SOURCES.txt'\n"}
+[2.876990] (main) StdoutLine: {'line': b'running build\n'}
+[2.877076] (main) StdoutLine: {'line': b'running build_py\n'}
+[2.877186] (main) StdoutLine: {'line': b'creating /home/quauv/auv/build/main/build\n'}
+[2.877302] (main) StdoutLine: {'line': b'creating /home/quauv/auv/build/main/build/lib\n'}
+[2.877432] (main) StdoutLine: {'line': b'creating /home/quauv/auv/build/main/build/lib/main\n'}
+[2.877517] (main) StdoutLine: {'line': b'copying main/__init__.py -> /home/quauv/auv/build/main/build/lib/main\n'}
+[2.877628] (main) StdoutLine: {'line': b'copying main/navigation.py -> /home/quauv/auv/build/main/build/lib/main\n'}
+[2.877752] (sensors) StdoutLine: {'line': b'creating ../../build/sensors/sensors.egg-info\n'}
+[2.877875] (main) StdoutLine: {'line': b'copying main/missionControl.py -> /home/quauv/auv/build/main/build/lib/main\n'}
+[2.877983] (sensors) StdoutLine: {'line': b'writing ../../build/sensors/sensors.egg-info/PKG-INFO\n'}
+[2.878241] (main) StdoutLine: {'line': b'running install\n'}
+[2.878352] (sensors) StdoutLine: {'line': b'writing dependency_links to ../../build/sensors/sensors.egg-info/dependency_links.txt\n'}
+[2.878477] (sensors) StdoutLine: {'line': b'writing entry points to ../../build/sensors/sensors.egg-info/entry_points.txt\n'}
+[2.878616] (sensors) StdoutLine: {'line': b'writing requirements to ../../build/sensors/sensors.egg-info/requires.txt\n'}
+[2.878723] (main) StdoutLine: {'line': b'running install_lib\n'}
+[2.878825] (sensors) StdoutLine: {'line': b'writing top-level names to ../../build/sensors/sensors.egg-info/top_level.txt\n'}
+[2.879064] (sensors) StdoutLine: {'line': b"writing manifest file '../../build/sensors/sensors.egg-info/SOURCES.txt'\n"}
+[2.879702] (main) StdoutLine: {'line': b'creating /home/quauv/auv/install/main/lib/python3.10/site-packages/main\n'}
+[2.879859] (main) StdoutLine: {'line': b'copying /home/quauv/auv/build/main/build/lib/main/__init__.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main\n'}
+[2.880019] (main) StdoutLine: {'line': b'copying /home/quauv/auv/build/main/build/lib/main/navigation.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main\n'}
+[2.880181] (main) StdoutLine: {'line': b'copying /home/quauv/auv/build/main/build/lib/main/missionControl.py -> /home/quauv/auv/install/main/lib/python3.10/site-packages/main\n'}
+[2.880997] (main) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/__init__.py to __init__.cpython-310.pyc\n'}
+[2.881358] (main) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/navigation.py to navigation.cpython-310.pyc\n'}
+[2.881560] (sensors) StdoutLine: {'line': b"reading manifest file '../../build/sensors/sensors.egg-info/SOURCES.txt'\n"}
+[2.882216] (main) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/main/lib/python3.10/site-packages/main/missionControl.py to missionControl.cpython-310.pyc\n'}
+[2.882497] (sensors) StdoutLine: {'line': b"writing manifest file '../../build/sensors/sensors.egg-info/SOURCES.txt'\n"}
+[2.882689] (sensors) StdoutLine: {'line': b'running build\n'}
+[2.882789] (sensors) StdoutLine: {'line': b'running build_py\n'}
+[2.882958] (main) StdoutLine: {'line': b'running install_data\n'}
+[2.883124] (sensors) StdoutLine: {'line': b'creating /home/quauv/auv/build/sensors/build\n'}
+[2.883270] (main) StdoutLine: {'line': b'creating /home/quauv/auv/install/main/share/ament_index\n'}
+[2.883382] (sensors) StdoutLine: {'line': b'creating /home/quauv/auv/build/sensors/build/lib\n'}
+[2.883511] (main) StdoutLine: {'line': b'creating /home/quauv/auv/install/main/share/ament_index/resource_index\n'}
+[2.883617] (sensors) StdoutLine: {'line': b'creating /home/quauv/auv/build/sensors/build/lib/sensors\n'}
+[2.883696] (main) StdoutLine: {'line': b'creating /home/quauv/auv/install/main/share/ament_index/resource_index/packages\n'}
+[2.883773] (sensors) StdoutLine: {'line': b'copying sensors/__init__.py -> /home/quauv/auv/build/sensors/build/lib/sensors\n'}
+[2.883874] (main) StdoutLine: {'line': b'copying resource/main -> /home/quauv/auv/install/main/share/ament_index/resource_index/packages\n'}
+[2.883953] (sensors) StdoutLine: {'line': b'copying sensors/frontCam.py -> /home/quauv/auv/build/sensors/build/lib/sensors\n'}
+[2.884028] (main) StdoutLine: {'line': b'copying package.xml -> /home/quauv/auv/install/main/share/main\n'}
+[2.884103] (main) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.884179] (sensors) StdoutLine: {'line': b'running install\n'}
+[2.884290] (sensors) StdoutLine: {'line': b'running install_lib\n'}
+[2.885260] (sensors) StdoutLine: {'line': b'creating /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors\n'}
+[2.885434] (sensors) StdoutLine: {'line': b'copying /home/quauv/auv/build/sensors/build/lib/sensors/__init__.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors\n'}
+[2.885603] (sensors) StdoutLine: {'line': b'copying /home/quauv/auv/build/sensors/build/lib/sensors/frontCam.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors\n'}
+[2.886253] (main) StdoutLine: {'line': b'Copying ../../build/main/main.egg-info to /home/quauv/auv/install/main/lib/python3.10/site-packages/main-0.0.0-py3.10.egg-info\n'}
+[2.886434] (sensors) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors/__init__.py to __init__.cpython-310.pyc\n'}
+[2.886803] (sensors) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors/frontCam.py to frontCam.cpython-310.pyc\n'}
+[2.887610] (main) StdoutLine: {'line': b'running install_scripts\n'}
+[2.887723] (sensors) StdoutLine: {'line': b'running install_data\n'}
+[2.887864] (sensors) StdoutLine: {'line': b'creating /home/quauv/auv/install/sensors/share/ament_index\n'}
+[2.887983] (sensors) StdoutLine: {'line': b'creating /home/quauv/auv/install/sensors/share/ament_index/resource_index\n'}
+[2.888084] (sensors) StdoutLine: {'line': b'creating /home/quauv/auv/install/sensors/share/ament_index/resource_index/packages\n'}
+[2.888183] (sensors) StdoutLine: {'line': b'copying resource/sensors -> /home/quauv/auv/install/sensors/share/ament_index/resource_index/packages\n'}
+[2.888282] (user) StdoutLine: {'line': b'running egg_info\n'}
+[2.888445] (sensors) StdoutLine: {'line': b'copying package.xml -> /home/quauv/auv/install/sensors/share/sensors\n'}
+[2.888529] (sensors) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.889347] (user) StdoutLine: {'line': b'creating ../../build/user/user.egg-info\n'}
+[2.889632] (user) StdoutLine: {'line': b'writing ../../build/user/user.egg-info/PKG-INFO\n'}
+[2.890046] (user) StdoutLine: {'line': b'writing dependency_links to ../../build/user/user.egg-info/dependency_links.txt\n'}
+[2.890196] (user) StdoutLine: {'line': b'writing entry points to ../../build/user/user.egg-info/entry_points.txt\n'}
+[2.890327] (user) StdoutLine: {'line': b'writing requirements to ../../build/user/user.egg-info/requires.txt\n'}
+[2.890437] (user) StdoutLine: {'line': b'writing top-level names to ../../build/user/user.egg-info/top_level.txt\n'}
+[2.890790] (user) StdoutLine: {'line': b"writing manifest file '../../build/user/user.egg-info/SOURCES.txt'\n"}
+[2.891103] (sensors) StdoutLine: {'line': b'Copying ../../build/sensors/sensors.egg-info to /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors-0.0.0-py3.10.egg-info\n'}
+[2.892447] (sensors) StdoutLine: {'line': b'running install_scripts\n'}
+[2.893310] (user) StdoutLine: {'line': b"reading manifest file '../../build/user/user.egg-info/SOURCES.txt'\n"}
+[2.894255] (user) StdoutLine: {'line': b"writing manifest file '../../build/user/user.egg-info/SOURCES.txt'\n"}
+[2.894442] (user) StdoutLine: {'line': b'running build\n'}
+[2.894540] (user) StdoutLine: {'line': b'running build_py\n'}
+[2.894734] (user) StdoutLine: {'line': b'creating /home/quauv/auv/build/user/build\n'}
+[2.894834] (user) StdoutLine: {'line': b'creating /home/quauv/auv/build/user/build/lib\n'}
+[2.894934] (user) StdoutLine: {'line': b'creating /home/quauv/auv/build/user/build/lib/user\n'}
+[2.895028] (user) StdoutLine: {'line': b'copying user/__init__.py -> /home/quauv/auv/build/user/build/lib/user\n'}
+[2.895210] (user) StdoutLine: {'line': b'copying user/input.py -> /home/quauv/auv/build/user/build/lib/user\n'}
+[2.895361] (user) StdoutLine: {'line': b'copying user/interface.py -> /home/quauv/auv/build/user/build/lib/user\n'}
+[2.895602] (user) StdoutLine: {'line': b'running install\n'}
+[2.896081] (user) StdoutLine: {'line': b'running install_lib\n'}
+[2.897074] (user) StdoutLine: {'line': b'creating /home/quauv/auv/install/user/lib/python3.10/site-packages/user\n'}
+[2.897224] (user) StdoutLine: {'line': b'copying /home/quauv/auv/build/user/build/lib/user/__init__.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user\n'}
+[2.897390] (user) StdoutLine: {'line': b'copying /home/quauv/auv/build/user/build/lib/user/input.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user\n'}
+[2.897533] (user) StdoutLine: {'line': b'copying /home/quauv/auv/build/user/build/lib/user/interface.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user\n'}
+[2.898446] (user) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/__init__.py to __init__.cpython-310.pyc\n'}
+[2.898842] (user) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/input.py to input.cpython-310.pyc\n'}
+[2.899105] (user) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/interface.py to interface.cpython-310.pyc\n'}
+[2.899335] (user) StdoutLine: {'line': b'running install_data\n'}
+[2.899482] (user) StdoutLine: {'line': b'creating /home/quauv/auv/install/user/share/ament_index\n'}
+[2.899586] (user) StdoutLine: {'line': b'creating /home/quauv/auv/install/user/share/ament_index/resource_index\n'}
+[2.899688] (user) StdoutLine: {'line': b'creating /home/quauv/auv/install/user/share/ament_index/resource_index/packages\n'}
+[2.899786] (user) StdoutLine: {'line': b'copying resource/user -> /home/quauv/auv/install/user/share/ament_index/resource_index/packages\n'}
+[2.899890] (user) StdoutLine: {'line': b'copying package.xml -> /home/quauv/auv/install/user/share/user\n'}
+[2.899997] (user) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.903012] (user) StdoutLine: {'line': b'Copying ../../build/user/user.egg-info to /home/quauv/auv/install/user/lib/python3.10/site-packages/user-0.0.0-py3.10.egg-info\n'}
+[2.904488] (user) StdoutLine: {'line': b'running install_scripts\n'}
+[2.915491] (-) TimerEvent: {}
+[2.916000] (main) StdoutLine: {'line': b'Installing missionControl script to /home/quauv/auv/install/main/lib/main\n'}
+[2.916190] (control) StdoutLine: {'line': b'running egg_info\n'}
+[2.916349] (main) StdoutLine: {'line': b'Installing navigation script to /home/quauv/auv/install/main/lib/main\n'}
+[2.916798] (main) StdoutLine: {'line': b"writing list of installed files to '/home/quauv/auv/build/main/install.log'\n"}
+[2.917168] (control) StdoutLine: {'line': b'creating ../../build/control/control.egg-info\n'}
+[2.917450] (control) StdoutLine: {'line': b'writing ../../build/control/control.egg-info/PKG-INFO\n'}
+[2.917802] (control) StdoutLine: {'line': b'writing dependency_links to ../../build/control/control.egg-info/dependency_links.txt\n'}
+[2.917989] (control) StdoutLine: {'line': b'writing entry points to ../../build/control/control.egg-info/entry_points.txt\n'}
+[2.918129] (control) StdoutLine: {'line': b'writing requirements to ../../build/control/control.egg-info/requires.txt\n'}
+[2.918237] (control) StdoutLine: {'line': b'writing top-level names to ../../build/control/control.egg-info/top_level.txt\n'}
+[2.918593] (control) StdoutLine: {'line': b"writing manifest file '../../build/control/control.egg-info/SOURCES.txt'\n"}
+[2.921117] (control) StdoutLine: {'line': b"reading manifest file '../../build/control/control.egg-info/SOURCES.txt'\n"}
+[2.921446] (sensors) StdoutLine: {'line': b'Installing bottomCam script to /home/quauv/auv/install/sensors/lib/sensors\n'}
+[2.921840] (sensors) StdoutLine: {'line': b'Installing frontCam script to /home/quauv/auv/install/sensors/lib/sensors\n'}
+[2.922086] (control) StdoutLine: {'line': b"writing manifest file '../../build/control/control.egg-info/SOURCES.txt'\n"}
+[2.922259] (control) StdoutLine: {'line': b'running build\n'}
+[2.922382] (control) StdoutLine: {'line': b'running build_py\n'}
+[2.922469] (sensors) StdoutLine: {'line': b"writing list of installed files to '/home/quauv/auv/build/sensors/install.log'\n"}
+[2.922565] (control) StdoutLine: {'line': b'creating /home/quauv/auv/build/control/build\n'}
+[2.922667] (control) StdoutLine: {'line': b'creating /home/quauv/auv/build/control/build/lib\n'}
+[2.922773] (control) StdoutLine: {'line': b'creating /home/quauv/auv/build/control/build/lib/control\n'}
+[2.922876] (control) StdoutLine: {'line': b'copying control/__init__.py -> /home/quauv/auv/build/control/build/lib/control\n'}
+[2.922981] (control) StdoutLine: {'line': b'copying control/thrusters.py -> /home/quauv/auv/build/control/build/lib/control\n'}
+[2.923244] (control) StdoutLine: {'line': b'copying control/payloads.py -> /home/quauv/auv/build/control/build/lib/control\n'}
+[2.923476] (control) StdoutLine: {'line': b'running install\n'}
+[2.923952] (control) StdoutLine: {'line': b'running install_lib\n'}
+[2.924969] (control) StdoutLine: {'line': b'creating /home/quauv/auv/install/control/lib/python3.10/site-packages/control\n'}
+[2.925105] (control) StdoutLine: {'line': b'copying /home/quauv/auv/build/control/build/lib/control/__init__.py -> /home/quauv/auv/install/control/lib/python3.10/site-packages/control\n'}
+[2.925284] (control) StdoutLine: {'line': b'copying /home/quauv/auv/build/control/build/lib/control/thrusters.py -> /home/quauv/auv/install/control/lib/python3.10/site-packages/control\n'}
+[2.925442] (control) StdoutLine: {'line': b'copying /home/quauv/auv/build/control/build/lib/control/payloads.py -> /home/quauv/auv/install/control/lib/python3.10/site-packages/control\n'}
+[2.926255] (control) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/control/lib/python3.10/site-packages/control/__init__.py to __init__.cpython-310.pyc\n'}
+[2.926614] (control) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/control/lib/python3.10/site-packages/control/thrusters.py to thrusters.cpython-310.pyc\n'}
+[2.927235] (control) StdoutLine: {'line': b'byte-compiling /home/quauv/auv/install/control/lib/python3.10/site-packages/control/payloads.py to payloads.cpython-310.pyc\n'}
+[2.927640] (control) StdoutLine: {'line': b'running install_data\n'}
+[2.927789] (control) StdoutLine: {'line': b'creating /home/quauv/auv/install/control/share/ament_index\n'}
+[2.927896] (control) StdoutLine: {'line': b'creating /home/quauv/auv/install/control/share/ament_index/resource_index\n'}
+[2.927997] (control) StdoutLine: {'line': b'creating /home/quauv/auv/install/control/share/ament_index/resource_index/packages\n'}
+[2.928099] (control) StdoutLine: {'line': b'copying resource/control -> /home/quauv/auv/install/control/share/ament_index/resource_index/packages\n'}
+[2.928201] (control) StdoutLine: {'line': b'copying package.xml -> /home/quauv/auv/install/control/share/control\n'}
+[2.928310] (control) StdoutLine: {'line': b'running install_egg_info\n'}
+[2.931110] (control) StdoutLine: {'line': b'Copying ../../build/control/control.egg-info to /home/quauv/auv/install/control/lib/python3.10/site-packages/control-0.0.0-py3.10.egg-info\n'}
+[2.932499] (control) StdoutLine: {'line': b'running install_scripts\n'}
+[2.935634] (user) StdoutLine: {'line': b"writing list of installed files to '/home/quauv/auv/build/user/install.log'\n"}
+[2.966047] (control) StdoutLine: {'line': b'Installing thrusters script to /home/quauv/auv/install/control/lib/control\n'}
+[2.966648] (control) StdoutLine: {'line': b"writing list of installed files to '/home/quauv/auv/build/control/install.log'\n"}
+[2.976106] (main) CommandEnded: {'returncode': 0}
+[3.006799] (main) JobEnded: {'identifier': 'main', 'rc': 0}
+[3.010844] (sensors) CommandEnded: {'returncode': 0}
+[3.015978] (-) TimerEvent: {}
+[3.032222] (sensors) JobEnded: {'identifier': 'sensors', 'rc': 0}
+[3.034546] (user) CommandEnded: {'returncode': 0}
+[3.054345] (user) JobEnded: {'identifier': 'user', 'rc': 0}
+[3.057943] (control) CommandEnded: {'returncode': 0}
+[3.075311] (control) JobEnded: {'identifier': 'control', 'rc': 0}
+[3.077361] (-) EventReactorShutdown: {}

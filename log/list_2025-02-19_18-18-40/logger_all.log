@@ -1,0 +1,86 @@
+[0.170s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/quauv/auv']
+[0.170s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/quauv/auv'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffff9873ed70>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0xffff9873ded0>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0xffff9873ded0>>, mixin_verb=('list',))
+[0.478s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.478s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.478s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.478s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.478s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.479s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/quauv/auv'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extensions ['ignore', 'ignore_ament_install']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'ignore'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'ignore_ament_install'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extensions ['colcon_pkg']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'colcon_pkg'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extensions ['colcon_meta']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'colcon_meta'
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extensions ['ros']
+[0.479s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'ros'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extensions ['cmake', 'python']
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'cmake'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'python'
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extensions ['python_setup_py']
+[0.497s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv) by extension 'python_setup_py'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/build) by extensions ['ignore', 'ignore_ament_install']
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/build) by extension 'ignore'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/build) ignored
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/install) by extensions ['ignore', 'ignore_ament_install']
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/install) by extension 'ignore'
+[0.498s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/install) ignored
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/log) by extensions ['ignore', 'ignore_ament_install']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/log) by extension 'ignore'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/log) ignored
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extensions ['ignore', 'ignore_ament_install']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'ignore'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'ignore_ament_install'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extensions ['colcon_pkg']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'colcon_pkg'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extensions ['colcon_meta']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'colcon_meta'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extensions ['ros']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'ros'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extensions ['cmake', 'python']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'cmake'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'python'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extensions ['python_setup_py']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src) by extension 'python_setup_py'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extensions ['ignore', 'ignore_ament_install']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extension 'ignore'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extension 'ignore_ament_install'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extensions ['colcon_pkg']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extension 'colcon_pkg'
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extensions ['colcon_meta']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extension 'colcon_meta'
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extensions ['ros']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/control) by extension 'ros'
+[0.505s] DEBUG:colcon.colcon_core.package_identification:Package '/home/quauv/auv/src/control' with type 'ros.ament_python' and name 'control'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extensions ['ignore', 'ignore_ament_install']
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extension 'ignore'
+[0.505s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extension 'ignore_ament_install'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extensions ['colcon_pkg']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extension 'colcon_pkg'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extensions ['colcon_meta']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extension 'colcon_meta'
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extensions ['ros']
+[0.506s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/main) by extension 'ros'
+[0.507s] DEBUG:colcon.colcon_core.package_identification:Package '/home/quauv/auv/src/main' with type 'ros.ament_python' and name 'main'
+[0.507s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extensions ['ignore', 'ignore_ament_install']
+[0.510s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extension 'ignore'
+[0.510s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extension 'ignore_ament_install'
+[0.510s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extensions ['colcon_pkg']
+[0.510s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extension 'colcon_pkg'
+[0.510s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extensions ['colcon_meta']
+[0.510s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extension 'colcon_meta'
+[0.510s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extensions ['ros']
+[0.511s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/sensors) by extension 'ros'
+[0.512s] DEBUG:colcon.colcon_core.package_identification:Package '/home/quauv/auv/src/sensors' with type 'ros.ament_python' and name 'sensors'
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extensions ['ignore', 'ignore_ament_install']
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extension 'ignore'
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extension 'ignore_ament_install'
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extensions ['colcon_pkg']
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extension 'colcon_pkg'
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extensions ['colcon_meta']
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extension 'colcon_meta'
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extensions ['ros']
+[0.512s] Level 1:colcon.colcon_core.package_identification:_identify(/home/quauv/auv/src/user) by extension 'ros'
+[0.513s] DEBUG:colcon.colcon_core.package_identification:Package '/home/quauv/auv/src/user' with type 'ros.ament_python' and name 'user'
+[0.514s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
