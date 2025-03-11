@@ -1,3 +1,4 @@
 [console_scripts]
-
+input = user.input:main
+interface = user.interface:main
 

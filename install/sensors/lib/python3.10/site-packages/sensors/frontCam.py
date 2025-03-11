@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String, Float32MultiArray
+from sensor_msgs.msg import Image  # Import the Image message type
+from std_msgs.msg import Float32MultiArray
 import depthai as dai
 import cv2
 import numpy as np
@@ -12,6 +13,7 @@ from scipy.spatial.transform import Rotation as R
 from scripts.euler_from_quat import euler_from_quat
 import math
 import subprocess
+from cv_bridge import CvBridge  # Import cv_bridge to convert OpenCV images to ROS images
 
 def quaternion_to_euler(w, x, y, z):
     rotation_object = R.from_quat([x, y, z, w])
@@ -27,7 +29,7 @@ class FrontCamera(Node):
         # ROS2 Publishers
         self.publisher_sensors = self.create_publisher(Float32MultiArray, 'sensors', 10)
         self.publisher_yolo = self.create_publisher(Float32MultiArray, 'frontYolo', 10)
-        self.publisher_feed = self.create_publisher(Float32MultiArray, 'frontFeed', 10)
+        self.publisher_feed = self.create_publisher(Image, 'frontFeed', 10)  # Image publisher
         
         # Data queues for thread-safe communication
         self.data_queue_sensors = queue.Queue()
@@ -51,6 +53,8 @@ class FrontCamera(Node):
         self.error_count = 0
         self.MAX_ERRORS = 5  # Maximum number of consecutive errors before restart
         self.ERROR_TIMEOUT = 2.0  # Seconds without successful read before considering an error
+        
+        self.bridge = CvBridge()  # Initialize cv_bridge
 
     def setup_depthai(self):
         try:
@@ -160,10 +164,9 @@ class FrontCamera(Node):
                         yolo_msg.data = yolo_data
                         self.data_queue_yolo.put(yolo_msg)
                     
-                    # Process video feed
-                    feed_msg = Float32MultiArray()
-                    feed_msg.data = [0.0] * 6  # Placeholder data
-                    self.data_queue_feed.put(feed_msg)
+                    # Convert the frame to ROS image message and publish
+                    ros_image = self.bridge.cv2_to_imgmsg(frame, encoding="bgr8")  # Convert to ROS image message
+                    self.data_queue_feed.put(ros_image)
                     
                     # Write to video file
                     if self.out is None:
@@ -285,8 +288,8 @@ class FrontCamera(Node):
     def timer_callback_feed(self):
         while not self.data_queue_feed.empty():
             msg = self.data_queue_feed.get()
-            self.publisher_feed.publish(msg)
-            self.get_logger().info('Publishing feed: Placeholder data')
+            self.publisher_feed.publish(msg)  # Publish image message
+            self.get_logger().info('Publishing feed: Image data')
 
     def destroy_node(self):
         self.running = False

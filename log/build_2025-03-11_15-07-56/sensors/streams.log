@@ -1,0 +1,25 @@
+[2.530s] Invoking command in '/home/quauv/auv/src/sensors': PYTHONPATH=/home/quauv/auv/build/sensors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/sensors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sensors build --build-base /home/quauv/auv/build/sensors/build install --record /home/quauv/auv/build/sensors/install.log --single-version-externally-managed install_data
+[2.939s] running egg_info
+[2.940s] writing ../../build/sensors/sensors.egg-info/PKG-INFO
+[2.940s] writing dependency_links to ../../build/sensors/sensors.egg-info/dependency_links.txt
+[2.940s] writing entry points to ../../build/sensors/sensors.egg-info/entry_points.txt
+[2.941s] writing requirements to ../../build/sensors/sensors.egg-info/requires.txt
+[2.941s] writing top-level names to ../../build/sensors/sensors.egg-info/top_level.txt
+[2.944s] reading manifest file '../../build/sensors/sensors.egg-info/SOURCES.txt'
+[2.945s] writing manifest file '../../build/sensors/sensors.egg-info/SOURCES.txt'
+[2.945s] running build
+[2.945s] running build_py
+[2.946s] copying sensors/frontCam.py -> /home/quauv/auv/build/sensors/build/lib/sensors
+[2.946s] running install
+[2.947s] running install_lib
+[2.948s] copying /home/quauv/auv/build/sensors/build/lib/sensors/frontCam.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors
+[2.949s] byte-compiling /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors/frontCam.py to frontCam.cpython-310.pyc
+[2.952s] running install_data
+[2.953s] running install_egg_info
+[2.956s] removing '/home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors-0.0.0-py3.10.egg-info' (and everything under it)
+[2.956s] Copying ../../build/sensors/sensors.egg-info to /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors-0.0.0-py3.10.egg-info
+[2.958s] running install_scripts
+[2.989s] Installing bottomCam script to /home/quauv/auv/install/sensors/lib/sensors
+[2.989s] Installing frontCam script to /home/quauv/auv/install/sensors/lib/sensors
+[2.990s] writing list of installed files to '/home/quauv/auv/build/sensors/install.log'
+[3.075s] Invoked command in '/home/quauv/auv/src/sensors' returned '0': PYTHONPATH=/home/quauv/auv/build/sensors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/sensors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sensors build --build-base /home/quauv/auv/build/sensors/build install --record /home/quauv/auv/build/sensors/install.log --single-version-externally-managed install_data

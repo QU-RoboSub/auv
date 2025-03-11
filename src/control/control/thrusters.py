@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 
 from std_msgs.msg import String
+from std_msgs.msg import Float32MultiArray
 
 
 class Thrusters(Node):
@@ -9,17 +10,10 @@ class Thrusters(Node):
     def __init__(self):
         super().__init__('thrustersNode')
 
-    #Create Sensors Subscriber
-        self.sensors_subscription = self.create_subscription(
-        String,
-        'sensors',
-        self.listener_callback_sensors,
-        10)
-        self.sensors_subscription  
 
     #Create Orientation Subscriber
         self.orientation_subscription = self.create_subscription(
-        String,
+        Float32MultiArray,
         'orientation',
         self.listener_callback_orientation,
         10)
@@ -41,9 +35,6 @@ class Thrusters(Node):
     def listener_callback_orientation(self, msg):
         self.get_logger().info('I heard: "%s"' % msg.data)
 
-    #Input Subscriber
-    def listener_callback_input(self, msg):
-        self.get_logger().info('I heard: "%s"' % msg.data)
 
 
 def main(args=None):

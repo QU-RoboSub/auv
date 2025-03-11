@@ -1,0 +1,36 @@
+[2.556s] Invoking command in '/home/quauv/auv/src/sensors': PYTHONPATH=/home/quauv/auv/build/sensors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/sensors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sensors build --build-base /home/quauv/auv/build/sensors/build install --record /home/quauv/auv/build/sensors/install.log --single-version-externally-managed install_data
+[2.963s] running egg_info
+[2.964s] writing ../../build/sensors/sensors.egg-info/PKG-INFO
+[2.964s] writing dependency_links to ../../build/sensors/sensors.egg-info/dependency_links.txt
+[2.964s] writing entry points to ../../build/sensors/sensors.egg-info/entry_points.txt
+[2.965s] writing requirements to ../../build/sensors/sensors.egg-info/requires.txt
+[2.965s] writing top-level names to ../../build/sensors/sensors.egg-info/top_level.txt
+[2.968s] reading manifest file '../../build/sensors/sensors.egg-info/SOURCES.txt'
+[2.969s] writing manifest file '../../build/sensors/sensors.egg-info/SOURCES.txt'
+[2.969s] running build
+[2.969s] running build_py
+[2.970s] copying scripts/__init__.py -> /home/quauv/auv/build/sensors/build/lib/scripts
+[2.970s] copying scripts/ms5837.py -> /home/quauv/auv/build/sensors/build/lib/scripts
+[2.970s] copying scripts/euler_from_quat.py -> /home/quauv/auv/build/sensors/build/lib/scripts
+[2.970s] copying sensors/__init__.py -> /home/quauv/auv/build/sensors/build/lib/sensors
+[2.971s] copying sensors/frontCam.py -> /home/quauv/auv/build/sensors/build/lib/sensors
+[2.971s] running install
+[2.971s] running install_lib
+[2.972s] copying /home/quauv/auv/build/sensors/build/lib/scripts/__init__.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/scripts
+[2.973s] copying /home/quauv/auv/build/sensors/build/lib/scripts/ms5837.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/scripts
+[2.973s] copying /home/quauv/auv/build/sensors/build/lib/scripts/euler_from_quat.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/scripts
+[2.973s] copying /home/quauv/auv/build/sensors/build/lib/sensors/__init__.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors
+[2.973s] copying /home/quauv/auv/build/sensors/build/lib/sensors/frontCam.py -> /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors
+[2.974s] byte-compiling /home/quauv/auv/install/sensors/lib/python3.10/site-packages/scripts/ms5837.py to ms5837.cpython-310.pyc
+[2.977s] byte-compiling /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors/frontCam.py to frontCam.cpython-310.pyc
+[2.979s] running install_data
+[2.979s] copying resource/sensors -> /home/quauv/auv/install/sensors/share/ament_index/resource_index/packages
+[2.979s] copying package.xml -> /home/quauv/auv/install/sensors/share/sensors
+[2.980s] running install_egg_info
+[2.983s] removing '/home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors-0.0.0-py3.10.egg-info' (and everything under it)
+[2.983s] Copying ../../build/sensors/sensors.egg-info to /home/quauv/auv/install/sensors/lib/python3.10/site-packages/sensors-0.0.0-py3.10.egg-info
+[2.985s] running install_scripts
+[3.016s] Installing bottomCam script to /home/quauv/auv/install/sensors/lib/sensors
+[3.017s] Installing frontCam script to /home/quauv/auv/install/sensors/lib/sensors
+[3.017s] writing list of installed files to '/home/quauv/auv/build/sensors/install.log'
+[3.095s] Invoked command in '/home/quauv/auv/src/sensors' returned '0': PYTHONPATH=/home/quauv/auv/build/sensors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/sensors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/sensors build --build-base /home/quauv/auv/build/sensors/build install --record /home/quauv/auv/build/sensors/install.log --single-version-externally-managed install_data

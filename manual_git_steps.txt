@@ -1,0 +1,85 @@
+Steps to Publish Your Repository to GitHub:
+
+1. Set the remote correctly:
+   ```
+   git remote remove auv
+   git remote add origin https://github.com/QU-RoboSub/auv.git
+   ```
+
+2. Create a .gitignore file to exclude build artifacts:
+   ```
+   # Python
+   __pycache__/
+   *.py[cod]
+   *$py.class
+   *.so
+   .Python
+   build/
+   develop-eggs/
+   dist/
+   downloads/
+   eggs/
+   .eggs/
+   lib/
+   lib64/
+   parts/
+   sdist/
+   var/
+   wheels/
+   *.egg-info/
+   .installed.cfg
+   *.egg
+
+   # ROS specific
+   install/
+   log/
+   build/
+
+   # Recordings
+   *.avi
+
+   # System specific
+   .DS_Store
+   Thumbs.db
+   ```
+
+3. Add and commit your changes:
+   ```
+   git add .gitignore
+   git commit -m "Add gitignore file"
+   ```
+
+4. Fetch from remote:
+   ```
+   git fetch origin
+   ```
+
+5. Pull with rebase (or merge):
+   ```
+   git pull --rebase origin main
+   ```
+   If there are conflicts, resolve them and continue:
+   ```
+   git add <resolved-files>
+   git rebase --continue
+   ```
+
+6. Push to GitHub:
+   ```
+   git push -u origin main
+   ```
+
+If you're prompted for credentials, you may need to:
+- Enter your GitHub username and personal access token
+- Or set up SSH keys for authentication
+
+If you get a non-fast-forward error:
+1. Try force pushing (only if you're sure you want to overwrite the remote):
+   ```
+   git push -f origin main
+   ```
+2. Or consider creating a new branch:
+   ```
+   git checkout -b new-main
+   git push -u origin new-main
+   ``` 
