@@ -35,26 +35,47 @@ Steps to Publish Your Repository to GitHub:
    log/
    build/
 
-   # Recordings
+   # Recordings - store all recordings in the dedicated folder
+   # Ignore any stray recordings in the root directory
    *.avi
+   *.mp4
+   *.mov
+   *.mkv
+   *.webm
+
+   # Dedicated recordings folder - keep the folder but ignore contents
+   /recordings/*
+   !/recordings/.gitkeep
 
    # System specific
    .DS_Store
    Thumbs.db
    ```
 
-3. Add and commit your changes:
+3. Create a dedicated recordings folder:
    ```
-   git add .gitignore
-   git commit -m "Add gitignore file"
+   mkdir -p recordings
+   touch recordings/.gitkeep
+   ```
+   Move any existing recording files to this folder:
+   ```
+   mv *.avi recordings/ 2>/dev/null
+   mv *.mp4 recordings/ 2>/dev/null
+   mv *.mov recordings/ 2>/dev/null
    ```
 
-4. Fetch from remote:
+4. Add and commit your changes:
+   ```
+   git add .gitignore recordings/
+   git commit -m "Add gitignore file and dedicated recordings folder"
+   ```
+
+5. Fetch from remote:
    ```
    git fetch origin
    ```
 
-5. Pull with rebase (or merge):
+6. Pull with rebase (or merge):
    ```
    git pull --rebase origin main
    ```
@@ -64,7 +85,7 @@ Steps to Publish Your Repository to GitHub:
    git rebase --continue
    ```
 
-6. Push to GitHub:
+7. Push to GitHub:
    ```
    git push -u origin main
    ```
