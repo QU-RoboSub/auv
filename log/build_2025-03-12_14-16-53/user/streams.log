@@ -1,0 +1,25 @@
+[2.618s] Invoking command in '/home/quauv/auv/src/user': PYTHONPATH=/home/quauv/auv/build/user/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/user/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/user build --build-base /home/quauv/auv/build/user/build install --record /home/quauv/auv/build/user/install.log --single-version-externally-managed install_data
+[3.033s] running egg_info
+[3.034s] writing ../../build/user/user.egg-info/PKG-INFO
+[3.035s] writing dependency_links to ../../build/user/user.egg-info/dependency_links.txt
+[3.036s] writing entry points to ../../build/user/user.egg-info/entry_points.txt
+[3.036s] writing requirements to ../../build/user/user.egg-info/requires.txt
+[3.036s] writing top-level names to ../../build/user/user.egg-info/top_level.txt
+[3.041s] reading manifest file '../../build/user/user.egg-info/SOURCES.txt'
+[3.041s] writing manifest file '../../build/user/user.egg-info/SOURCES.txt'
+[3.041s] running build
+[3.041s] running build_py
+[3.042s] copying user/interface.py -> /home/quauv/auv/build/user/build/lib/user
+[3.042s] running install
+[3.042s] running install_lib
+[3.043s] copying /home/quauv/auv/build/user/build/lib/user/interface.py -> /home/quauv/auv/install/user/lib/python3.10/site-packages/user
+[3.044s] byte-compiling /home/quauv/auv/install/user/lib/python3.10/site-packages/user/interface.py to interface.cpython-310.pyc
+[3.046s] running install_data
+[3.046s] running install_egg_info
+[3.049s] removing '/home/quauv/auv/install/user/lib/python3.10/site-packages/user-0.0.0-py3.10.egg-info' (and everything under it)
+[3.049s] Copying ../../build/user/user.egg-info to /home/quauv/auv/install/user/lib/python3.10/site-packages/user-0.0.0-py3.10.egg-info
+[3.051s] running install_scripts
+[3.081s] Installing input script to /home/quauv/auv/install/user/lib/user
+[3.081s] Installing interface script to /home/quauv/auv/install/user/lib/user
+[3.082s] writing list of installed files to '/home/quauv/auv/build/user/install.log'
+[3.174s] Invoked command in '/home/quauv/auv/src/user' returned '0': PYTHONPATH=/home/quauv/auv/build/user/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/quauv/auv/install/user/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/user build --build-base /home/quauv/auv/build/user/build install --record /home/quauv/auv/build/user/install.log --single-version-externally-managed install_data
