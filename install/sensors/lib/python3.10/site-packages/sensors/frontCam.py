@@ -41,6 +41,17 @@ class FrontCamera(Node):
         self.create_timer(0.001, self.timer_callback_yolo)     # High frequency for YOLO
         self.create_timer(0.001, self.timer_callback_feed)     # High frequency for video feed
         
+        # Error handling variables - Initialize these BEFORE setup_depthai
+        self.error_count = 0
+        self.MAX_ERRORS = 5  # Maximum number of consecutive errors before restart
+        self.ERROR_TIMEOUT = 2.0  # Seconds without successful read before considering an error
+        
+        self.bridge = CvBridge()  # Initialize cv_bridge
+        
+        # Initialize device to None
+        self.device = None
+        self.out = None
+        
         # DepthAI setup
         self.setup_depthai()
         
@@ -48,13 +59,6 @@ class FrontCamera(Node):
         self.running = True
         self.processing_thread = threading.Thread(target=self.process_depthai_data)
         self.processing_thread.start()
-
-        # Error handling variables
-        self.error_count = 0
-        self.MAX_ERRORS = 5  # Maximum number of consecutive errors before restart
-        self.ERROR_TIMEOUT = 2.0  # Seconds without successful read before considering an error
-        
-        self.bridge = CvBridge()  # Initialize cv_bridge
 
     def setup_depthai(self):
         try:
@@ -65,10 +69,22 @@ class FrontCamera(Node):
             NN_INPUT_SIZE = (640, 352)
             DISPLAY_SIZE = (640, 640)
 
+            # Check if any device is available
+            device_infos = dai.Device.getAllAvailableDevices()
+            if not device_infos:
+                self.get_logger().error("No DepthAI device found. Please connect a device.")
+                raise Exception("No DepthAI device found")
+
+            self.get_logger().info(f"Found {len(device_infos)} devices")
+            for device_info in device_infos:
+                self.get_logger().info(f"Device: {device_info.getMxId()}")
+
             # Pipeline setup
+            self.get_logger().info("Setting up pipeline...")
             pipeline = dai.Pipeline()
 
             # Camera configuration
+            self.get_logger().info("Configuring camera...")
             cam = pipeline.create(dai.node.ColorCamera)
             cam.setPreviewSize(DISPLAY_SIZE[0], DISPLAY_SIZE[1])
             cam.setResolution(dai.ColorCameraProperties.SensorResolution.THE_720_P)
@@ -77,12 +93,14 @@ class FrontCamera(Node):
             cam.setColorOrder(dai.ColorCameraProperties.ColorOrder.BGR)
 
             # Image manip
+            self.get_logger().info("Configuring image manip...")
             manip = pipeline.create(dai.node.ImageManip)
             manip.initialConfig.setResize(NN_INPUT_SIZE[0], NN_INPUT_SIZE[1])
             manip.initialConfig.setFrameType(dai.RawImgFrame.Type.BGR888p)
             cam.preview.link(manip.inputImage)
 
             # YOLO network
+            self.get_logger().info("Configuring YOLO network...")
             nn = pipeline.create(dai.node.YoloDetectionNetwork)
             nn.setBlobPath(model_path)
             nn.setConfidenceThreshold(0.5)
@@ -92,6 +110,7 @@ class FrontCamera(Node):
             manip.out.link(nn.input)
 
             # IMU configuration
+            self.get_logger().info("Configuring IMU...")
             imu = pipeline.create(dai.node.IMU)
             imu.enableIMUSensor(dai.IMUSensor.ACCELEROMETER_RAW, 500)
             imu.enableIMUSensor(dai.IMUSensor.GYROSCOPE_RAW, 400)
@@ -100,6 +119,7 @@ class FrontCamera(Node):
             imu.setMaxBatchReports(10)
 
             # Create outputs
+            self.get_logger().info("Creating outputs...")
             xout_nn = pipeline.create(dai.node.XLinkOut)
             xout_nn.setStreamName("detections")
             xout_imu = pipeline.create(dai.node.XLinkOut)
@@ -108,12 +128,25 @@ class FrontCamera(Node):
             xout_video.setStreamName("video")
 
             # Link nodes
+            self.get_logger().info("Linking nodes...")
             nn.out.link(xout_nn.input)
             imu.out.link(xout_imu.input)
             cam.preview.link(xout_video.input)
 
-            # Device connection
-            self.device = dai.Device(pipeline)
+            # Device connection with timeout
+            self.get_logger().info("Connecting to device...")
+            try:
+                self.device = dai.Device(pipeline, device_infos[0], dai.UsbSpeed.SUPER)
+                time.sleep(1)  # Add a small delay
+                self.get_logger().info(f"Connected to device: {device_infos[0].getMxId()}")
+            except dai.XLinkWriteError as e:
+                self.get_logger().error(f"XLink write error: {e}")
+                self.get_logger().error("Check USB connection and device status.")
+                raise
+            except Exception as e:
+                self.get_logger().error(f"Failed to connect to device: {e}")
+                raise
+
             self.q_nn = self.device.getOutputQueue("detections", maxSize=1, blocking=False)
             self.q_imu = self.device.getOutputQueue("imu", maxSize=50, blocking=False)
             self.q_video = self.device.getOutputQueue("video", maxSize=1, blocking=False)
@@ -140,6 +173,13 @@ class FrontCamera(Node):
         last_imu_print = time.time()
         while self.running:
             try:
+                # Check if device is initialized
+                if self.device is None:
+                    self.get_logger().warn("Device not initialized, attempting to reconnect...")
+                    time.sleep(2)
+                    self.setup_depthai()
+                    continue
+
                 # Process video frame
                 video_frame = self.q_video.tryGet()
                 if video_frame is not None:
@@ -293,7 +333,8 @@ class FrontCamera(Node):
 
     def destroy_node(self):
         self.running = False
-        self.processing_thread.join()
+        if hasattr(self, 'processing_thread') and self.processing_thread is not None:
+            self.processing_thread.join()
         self.cleanup()
         super().destroy_node()
 
