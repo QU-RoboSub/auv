@@ -7,6 +7,12 @@ from tkinter import Tk, Frame, Label, Button, Entry, Canvas
 from tkinter.ttk import Style
 from PIL import Image as PILImage, ImageTk, ImageDraw
 import math
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use('TkAgg')
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
+import numpy as np
 
 # Define button style
 button_style = {
@@ -22,6 +28,12 @@ class Interface(Node):
     def __init__(self):
         super().__init__('interfaceNode')
 
+        # Add new instance variables
+        self.last_sensor_data = []
+        self.thruster_enabled = True
+        self.thruster_timer = None
+        self.logging_active = False
+
         # Initialize GUI components
         self.root = Tk()
         self.root.title("ROS Interface GUI")
@@ -34,31 +46,107 @@ class Interface(Node):
         self.style.configure("TButton", background="#81A1C1", foreground="#ECEFF4", font=("Helvetica", 10), borderwidth=0)
         self.style.map("TButton", background=[("active", "#5E81AC")])
 
+
         # Create settings frame first (but don't display it yet)
         self.settings_frame = Frame(self.root, bg="#2E3440")
+        self.settings_frame.grid_rowconfigure(0, weight=1)
+        self.settings_frame.grid_columnconfigure(0, weight=1)
+        self.settings_frame.grid_columnconfigure(1, weight=1)
         
         # Create PID configuration frame
         pid_frame = Frame(self.settings_frame, bg="#3B4252")
         pid_frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
+        # Create container frame for centered content
+        pid_container = Frame(pid_frame, bg="#3B4252")
+        pid_container.place(relx=0.5, rely=0.5, anchor="center")
+
+        # PID Configuration Title
+        Label(pid_container, text="PID Configuration", bg="#3B4252", fg="#ECEFF4", 
+            font=("Helvetica", 14, "bold")).grid(row=0, column=0, columnspan=4, pady=10)
+
+        # Column Headers
+        headers = ["P", "I", "D"]
+        for col, header in enumerate(headers, start=1):
+            Label(pid_container, text=header, bg="#3B4252", fg="#81A1C1",
+                font=("Helvetica", 12, "bold")).grid(row=1, column=col, padx=5, pady=5)
+
         # PID Entry fields
-        Label(pid_frame, text="PID Configuration", bg="#3B4252", fg="#ECEFF4", font=("Helvetica", 14)).grid(row=0, column=0, columnspan=4, pady=10)
-        
         dof_names = ['Depth', 'Roll', 'Pitch', 'Yaw', 'X', 'Y']
         self.pid_entries = []
         for i, name in enumerate(dof_names):
-            Label(pid_frame, text=name, bg="#3B4252", fg="#ECEFF4", font=("Helvetica", 12)).grid(row=i+1, column=0, padx=5, pady=5)
+            row = i + 2
+            Label(pid_container, text=name, bg="#3B4252", fg="#ECEFF4",
+                font=("Helvetica", 12)).grid(row=row, column=0, padx=5, pady=5, sticky="e")
+
+            entries = []
+            for col in range(1, 4):
+                entry = Entry(pid_container, width=8)
+                entry.grid(row=row, column=col, padx=5, pady=5)
+                entries.append(entry)
+            self.pid_entries.append(tuple(entries))
+
+         # Add separator and offset configuration
+        separator = Frame(pid_container, height=2, bg="#4C566A")
+        separator.grid(row=8, column=0, columnspan=4, sticky="ew", pady=10)
+
+        Label(pid_container, text="Offsets", bg="#3B4252", fg="#ECEFF4", 
+              font=("Helvetica", 14, "bold")).grid(row=9, column=0, columnspan=4, pady=5)
+
+        # Auto-set offsets button
+        Button(pid_container, text="Auto Set Offsets", command=self.auto_set_offsets,
+               **button_style).grid(row=10, column=0, columnspan=4, pady=5)
+
+        
+        # Manual offset entries
+        self.offset_entries = []
+        offset_dofs = ['Depth', 'Roll', 'Pitch', 'Yaw']
+
+        # Create a container frame for all offset fields
+        offset_container = Frame(pid_container, bg="#3B4252")
+        offset_container.grid(row=10, column=0, columnspan=4, pady=5, sticky='nsew')
+
+        # Configure column weights for centering
+        offset_container.grid_columnconfigure(0, weight=1)
+
+        for i, dof in enumerate(offset_dofs):
+            # Create container frame for each row
+            row_frame = Frame(offset_container, bg="#3B4252")
+            row_frame.grid(row=i, column=0, sticky='ew', pady=2)
             
-            p_entry = Entry(pid_frame)
-            p_entry.grid(row=i+1, column=1, padx=5, pady=5)
+            # Create inner frame for label+entry pair
+            field_frame = Frame(row_frame, bg="#3B4252")
+            field_frame.pack(expand=True, fill='x')
             
-            i_entry = Entry(pid_frame)
-            i_entry.grid(row=i+1, column=2, padx=5, pady=5)
+            # Label with right alignment
+            Label(field_frame, text=dof+":", bg="#3B4252", fg="#ECEFF4",
+                font=("Helvetica", 12), width=8, anchor='e').pack(side='left', padx=(0, 5))
             
-            d_entry = Entry(pid_frame)
-            d_entry.grid(row=i+1, column=3, padx=5, pady=5)
-            
-            self.pid_entries.append((p_entry, i_entry, d_entry))
+            # Entry field with left alignment
+            entry = Entry(field_frame, width=10)
+            entry.pack(side='left')
+            self.offset_entries.append(entry)
+
+
+        # Add manual offset set button
+        Button(pid_container, text="Set Manual Offsets", command=self.set_manual_offsets,
+               **button_style).grid(row=15, column=0, columnspan=4, pady=5)
+
+        # Add first separator above thruster toggle
+        Frame(pid_container, height=2, bg="#4C566A").grid(row=16, column=0, columnspan=4, sticky="ew", pady=10)
+
+        # Thruster enable/disable button
+        self.thruster_toggle_button = Button(pid_container, text="Disable Thrusters",
+                                             command=self.toggle_thrusters, **button_style)
+        self.thruster_toggle_button.grid(row=17, column=0, columnspan=4, pady=10)
+
+        # Add second separator below thruster toggle
+        Frame(pid_container, height=2, bg="#4C566A").grid(row=18, column=0, columnspan=4, sticky="ew", pady=10)
+
+        # Add logging button
+        self.logging_button = Button(pid_container, text="Start Logging", 
+                                   command=self.toggle_logging, **button_style)
+        self.logging_button.grid(row=19, column=0, columnspan=4, pady=10)
 
         # Create AUV visualization frame
         self.auv_frame = Frame(self.settings_frame, bg="#3B4252")
@@ -137,9 +225,77 @@ class Interface(Node):
             )
             self.thruster_labels[thruster_id] = label
 
-        # Save and Back buttons
-        Button(self.settings_frame, text="Save", command=self.save_pid_settings, **button_style).grid(row=1, column=0, columnspan=2, pady=20)
-        Button(self.settings_frame, text="Back", command=self.show_main, **button_style).grid(row=2, column=0, columnspan=2, pady=10)
+                # Create graph frame under AUV visualization
+        self.graph_frame = Frame(self.auv_frame, bg="#2E3440")
+        self.graph_frame.pack(fill='both', expand=True, pady=(10, 0))
+        
+        # Initialize data buffers
+        self.time_buffer = np.linspace(0, 100, 100)
+        self.data_buffers = {
+            'depth': {'actual': np.zeros(100), 'target': np.zeros(100)},
+            'roll': {'actual': np.zeros(100), 'target': np.zeros(100)},
+            'pitch': {'actual': np.zeros(100), 'target': np.zeros(100)},
+            'yaw': {'actual': np.zeros(100), 'target': np.zeros(100)}
+        }
+        
+        # Create graphs
+        self.figures = []
+        self.axes = []
+        self.lines = []
+        plt.style.use('fast')
+
+        # In the figure creation:
+
+
+        
+        dofs = ['Depth', 'Roll', 'Pitch', 'Yaw']
+        colors = ['#81A1C1', '#A3BE8C']
+        
+        for i, dof in enumerate(dofs):
+            frame = Frame(self.graph_frame, bg="#2E3440")
+            frame.grid(row=i//2, column=i%2, padx=5, pady=5, sticky='nsew')
+            
+            fig = Figure(figsize=(3, 1.5), dpi=80, facecolor="#2E3440")
+            fig.set_tight_layout(True)
+            ax = fig.add_subplot(111, xmargin=0, ymargin=0)
+            ax.set_facecolor("#3B4252")
+            ax.tick_params(axis='x', colors='#ECEFF4')
+            ax.tick_params(axis='y', colors='#ECEFF4')
+            ax.set_title(f"{dof} Tracking", color='#ECEFF4')
+            ax.set_xlabel('Time', color='#ECEFF4')
+            ax.set_ylabel('Value', color='#ECEFF4')
+            ax.set_autoscale_on(False)  # Disable auto-scaling for performance
+            
+            line_actual, = ax.plot([], [], color=colors[0], label='Actual')
+            line_target, = ax.plot([], [], color=colors[1], label='Target')
+            ax.legend(facecolor="#3B4252", edgecolor="#3B4252", labelcolor="#ECEFF4")
+            
+            canvas = FigureCanvasTkAgg(fig, master=frame)
+            canvas.draw()
+            canvas.get_tk_widget().pack(fill='both', expand=True)
+            
+            self.figures.append(fig)
+            self.axes.append(ax)
+            self.lines.append((line_actual, line_target))
+
+        # Configure grid layout
+        self.graph_frame.grid_rowconfigure(0, weight=1)
+        self.graph_frame.grid_rowconfigure(1, weight=1)
+        self.graph_frame.grid_columnconfigure(0, weight=1)
+        self.graph_frame.grid_columnconfigure(1, weight=1)
+        
+        # Add update timer for graphs
+        self.graph_timer = self.create_timer(0.0025, self.update_graphs)
+
+        # Create button frame at bottom right of settings window
+        button_frame = Frame(self.settings_frame, bg="#2E3440")
+        button_frame.grid(row=1, column=0, columnspan=2, sticky="se", padx=20, pady=20)
+
+        # Add Save and Back buttons
+        Button(button_frame, text="Save", command=self.save_pid_settings, 
+               **button_style).pack(side="right", padx=10, ipadx=15)
+        Button(button_frame, text="Back", command=self.show_main, 
+               **button_style).pack(side="right", padx=10, ipadx=15)
 
 
         # Create main container frame
@@ -349,6 +505,8 @@ class Interface(Node):
         self.frontFeed_subscription = self.create_subscription(Image, 'frontFeed', self.listener_callback_frontFeed, 10)
         self.publisher_userIn = self.create_publisher(Float32MultiArray, 'userIn', 10)
         self.target_publisher = self.create_publisher(Float32MultiArray, 'target_update', 10)
+        self.thruster_publisher = self.create_publisher(Float32MultiArray, 'thrusters', 10)
+        self.offset_publisher = self.create_publisher(Float32MultiArray, 'offset_update', 10)
         self.userIn_state = [0.0] * 6
         self.thruster_values = [0.0] * 8
         self.bridge = CvBridge()
@@ -396,6 +554,42 @@ class Interface(Node):
             7: "rear-right-inner"
         }
         return locations.get(thruster_id, "unknown")
+
+    def toggle_thrusters(self):
+        """Toggle between PID control and manual thruster override"""
+        self.thruster_enabled = not self.thruster_enabled
+        if self.thruster_enabled:
+            self.thruster_toggle_button.config(text="Disable Thrusters")
+            if self.thruster_timer:
+                self.thruster_timer.cancel()
+                self.thruster_timer = None
+        else:
+            self.thruster_toggle_button.config(text="Enable Thrusters")
+            self.thruster_timer = self.create_timer(0.1, self.publish_thruster_override)
+
+    def publish_thruster_override(self):
+        """Publish 7.5 to all thrusters when disabled"""
+        if not self.thruster_enabled:
+            msg = Float32MultiArray()
+            msg.data = [7.5] * 8
+            self.thruster_publisher.publish(msg)
+
+    def auto_set_offsets(self):
+        """Auto-populate offset entries with current sensor values"""
+        try:
+            # Assuming sensor data order: [roll, pitch, yaw, depth]
+            if len(self.last_sensor_data) >= 4:
+                depth = self.last_sensor_data[3]
+                roll = self.last_sensor_data[0]
+                pitch = self.last_sensor_data[1]
+                yaw = self.last_sensor_data[2]
+                
+                offsets = [depth, roll, pitch, yaw]
+                for entry, value in zip(self.offset_entries, offsets):
+                    entry.delete(0, 'end')
+                    entry.insert(0, f"{value:.2f}")
+        except Exception as e:
+            self.get_logger().error(f"Error setting offsets: {str(e)}")
 
     def update_thruster_visuals(self, canvas, thruster_labels):
         """Helper function to update thruster visuals for any canvas"""
@@ -445,6 +639,13 @@ class Interface(Node):
                 pid_values.append(float(d_entry.get()))
             except ValueError:
                 self.get_logger().error("Invalid PID value entered")
+            try:
+                offset_values = [float(entry.get()) for entry in self.offset_entries]
+                offset_msg = Float32MultiArray()
+                offset_msg.data = offset_values
+                self.offset_publisher.publish(offset_msg)  # Add this publisher in __init__
+            except ValueError:
+                self.get_logger().error("Invalid offset value entered")
                 return
 
         msg = Float32MultiArray()
@@ -505,6 +706,7 @@ class Interface(Node):
         self.root.after(0, self.update_front_feed, tk_image)
 
     def update_sensors_data(self, data):
+        self.last_sensor_data = data
         if len(data) >= 3:
             self.roll_label.config(text=f"Roll: {data[0]:.2f}")
             self.pitch_label.config(text=f"Pitch: {data[1]:.2f}")
@@ -516,6 +718,85 @@ class Interface(Node):
     def update_front_feed(self, tk_image):
         self.front_feed_label.config(image=tk_image)
         self.front_feed_label.image = tk_image
+
+    def toggle_logging(self):
+        """Toggle logging state"""
+        self.logging_active = not self.logging_active
+        if self.logging_active:
+            self.logging_button.config(text="Stop Logging")
+            self.start_logging()
+        else:
+            self.logging_button.config(text="Start Logging")
+            self.stop_logging()
+
+    def start_logging(self):
+        """Implement logging initialization here"""
+        self.get_logger().info("Logging started")
+        # Add your logging initialization code
+
+    def stop_logging(self):
+        """Implement logging cleanup here"""
+        self.get_logger().info("Logging stopped")
+        # Add your logging cleanup code
+
+    def set_manual_offsets(self):
+        """Handle manual offset setting"""
+        try:
+            offset_values = [float(entry.get()) for entry in self.offset_entries]
+            msg = Float32MultiArray()
+            msg.data = offset_values
+            self.offset_publisher.publish(msg)  # Make sure to create this publisher in __init__
+            self.get_logger().info(f'Published manual offsets: {offset_values}')
+        except ValueError:
+            self.get_logger().error("Invalid offset value entered")
+
+    def update_graphs(self):
+        """Update all graphs with new data"""
+        for i, dof in enumerate(['depth', 'roll', 'pitch', 'yaw']):
+            actual_line, target_line = self.lines[i]
+            
+            # Update data
+            actual_line.set_data(self.time_buffer, self.data_buffers[dof]['actual'])
+            target_line.set_data(self.time_buffer, self.data_buffers[dof]['target'])
+            
+            # Update axis limits
+            min_val = min(np.min(self.data_buffers[dof]['actual']), 
+                        np.min(self.data_buffers[dof]['target']))
+            max_val = max(np.max(self.data_buffers[dof]['actual']), 
+                        np.max(self.data_buffers[dof]['target']))
+            self.axes[i].set_ylim(min_val - 0.1, max_val + 0.1)
+            self.axes[i].set_xlim(self.time_buffer[0], self.time_buffer[-1])
+            
+            self.figures[i].canvas.draw_idle()
+
+    # Update the data buffer management:
+    def update_data_buffer(self, actual_values, target_values):
+        """Update data buffers with new values"""
+        # Shift time buffer at 400Hz resolution
+        self.time_buffer = np.roll(self.time_buffer, -1)
+        self.time_buffer[-1] = self.time_buffer[-2] + 0.0025  # 400Hz increment
+        
+        # Update actual values
+        self.data_buffers['depth']['actual'] = np.roll(self.data_buffers['depth']['actual'], -1)
+        self.data_buffers['roll']['actual'] = np.roll(self.data_buffers['roll']['actual'], -1)
+        self.data_buffers['pitch']['actual'] = np.roll(self.data_buffers['pitch']['actual'], -1)
+        self.data_buffers['yaw']['actual'] = np.roll(self.data_buffers['yaw']['actual'], -1)
+        
+        self.data_buffers['depth']['actual'][-1] = actual_values[0]
+        self.data_buffers['roll']['actual'][-1] = actual_values[1]
+        self.data_buffers['pitch']['actual'][-1] = actual_values[2]
+        self.data_buffers['yaw']['actual'][-1] = actual_values[3]
+        
+        # Update target values
+        self.data_buffers['depth']['target'] = np.roll(self.data_buffers['depth']['target'], -1)
+        self.data_buffers['roll']['target'] = np.roll(self.data_buffers['roll']['target'], -1)
+        self.data_buffers['pitch']['target'] = np.roll(self.data_buffers['pitch']['target'], -1)
+        self.data_buffers['yaw']['target'] = np.roll(self.data_buffers['yaw']['target'], -1)
+        
+        self.data_buffers['depth']['target'][-1] = target_values[0]
+        self.data_buffers['roll']['target'][-1] = target_values[1]
+        self.data_buffers['pitch']['target'][-1] = target_values[2]
+        self.data_buffers['yaw']['target'][-1] = target_values[3]
 
     def run_gui(self):
         self.root.mainloop()
