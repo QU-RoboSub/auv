@@ -240,6 +240,7 @@ class Interface(Node):
         self.yaw_right_button.bind('<ButtonRelease-1>', lambda e: self.on_release(3))
 
         # Add Target Value Entry Fields
+          # Add Target Value Entry Fields
         Label(self.control_frame, text="Set Targets", bg="#3B4252", fg="#ECEFF4", font=("Helvetica", 12)).grid(row=9, column=0, columnspan=3, pady=(10, 5))
 
         self.target_entries = []
@@ -252,18 +253,84 @@ class Interface(Node):
             self.target_entries.append(entry)
 
         self.set_target_button = Button(self.control_frame, text="Update Targets", command=self.set_targets, **button_style)
-        self.set_target_button.grid(row=16, column=0, columnspan=3, pady=5)
+        self.set_target_button.grid(row=16, column=0, columnspan=3, pady=(5,2))
+
+        # Add mini AUV visualization under target inputs
+        self.mini_auv_frame = Frame(self.control_frame, bg="#3B4252")
+        self.mini_auv_frame.grid(row=17, column=0, columnspan=3, pady=(5, 0))
+
+        self.mini_auv_canvas = Canvas(self.mini_auv_frame, width=250, height=180, bg="#2E3440", highlightthickness=0)
+        self.mini_auv_canvas.pack(pady=0)
+
+        # Mini AUV dimensions
+        mini_auv_width = 140
+        mini_auv_height = 110
+        mini_x_center = 130
+        mini_y_center = 90
+
+        # Draw mini AUV body
+        self.mini_auv_body = self.mini_auv_canvas.create_rectangle(
+            mini_x_center - mini_auv_width/2,
+            mini_y_center - mini_auv_height/2,
+            mini_x_center + mini_auv_width/2,
+            mini_y_center + mini_auv_height/2,
+            outline="#81A1C1",
+            width=2
+        )
+
+        # Front/Rear markers
+        self.mini_auv_canvas.create_text(
+            mini_x_center,
+            mini_y_center - mini_auv_height/2 - 10,
+            text="FRONT",
+            fill="#81A1C1",
+            font=("Helvetica", 10, "bold")
+        )
+        self.mini_auv_canvas.create_text(
+            mini_x_center,
+            mini_y_center + mini_auv_height/2 + 10,
+            text="REAR",
+            fill="#81A1C1",
+            font=("Helvetica", 10, "bold")
+        )
+
+        # Update thruster positions with more spacing
+        mini_thruster_positions = {
+            0: (mini_x_center - 55, mini_y_center - 45, "H"),  # Increased from 50
+            4: (mini_x_center - 30, mini_y_center - 25, "V"),  # Moved outward
+            1: (mini_x_center + 55, mini_y_center - 45, "H"),
+            5: (mini_x_center + 30, mini_y_center - 25, "V"),
+            2: (mini_x_center - 55, mini_y_center + 45, "H"),
+            6: (mini_x_center - 30, mini_y_center + 25, "V"),
+            3: (mini_x_center + 55, mini_y_center + 45, "H"),
+            7: (mini_x_center + 30, mini_y_center + 25, "V")
+        }
+
+        # Draw mini thrusters
+        self.mini_thruster_labels = {}
+        for thruster_id, (x, y, type) in mini_thruster_positions.items():
+            color = "#8FBCBB" if type == "H" else "#88C0D0"
+            # Thruster body
+            self.mini_auv_canvas.create_oval(x-8, y-8, x+8, y+8, 
+                                        fill=color, outline="#ECEFF4", width=1)
+            
+            # Value labels
+            label = self.mini_auv_canvas.create_text(
+                x,
+                y + 18,  # Smaller offset
+                text="0.00",
+                fill="#ECEFF4",
+                font=("Helvetica", 9, "bold")
+            )
+            self.mini_thruster_labels[thruster_id] = label
 
         # Create a frame for the bottom labels
         self.bottom_frame = Frame(self.main_frame, bg="#3B4252", bd=0, highlightthickness=0)
         self.bottom_frame.pack(fill="x", pady=(10, 0))
 
-        # Labels for target, thrusters, and orientation data
+        # Labels for target and orientation data
         self.target_data_label = Label(self.bottom_frame, text="Target: ", bg="#3B4252", fg="#ECEFF4", font=("Helvetica", 12))
         self.target_data_label.pack(side="left", padx=10, pady=10)
-
-        self.thrusters_data_label = Label(self.bottom_frame, text="Thrusters Data: ", bg="#3B4252", fg="#ECEFF4", font=("Helvetica", 12))
-        self.thrusters_data_label.pack(side="left", padx=10, pady=10)
 
         self.roll_label = Label(self.bottom_frame, text="Roll: N/A", bg="#3B4252", fg="#ECEFF4", font=("Helvetica", 12))
         self.roll_label.pack(side="left", padx=10, pady=10)
@@ -330,29 +397,33 @@ class Interface(Node):
         }
         return locations.get(thruster_id, "unknown")
 
-
-    def update_thruster_display(self):
-        """Update the AUV visualization with current thruster values"""
-        for thruster_id, label_id in self.thruster_labels.items():
+    def update_thruster_visuals(self, canvas, thruster_labels):
+        """Helper function to update thruster visuals for any canvas"""
+        for thruster_id, label_id in thruster_labels.items():
             value = self.thruster_values[thruster_id]
-            self.auv_canvas.itemconfig(label_id, text=f"{value:.2f}")
+            canvas.itemconfig(label_id, text=f"{value:.2f}")
             
-            # Get base color from thruster type
-            if "outer" in self.get_thruster_location(thruster_id):
+            # Determine color based on thrust direction and type
+            location = self.get_thruster_location(thruster_id)
+            if "outer" in location:
                 base_color = "#8FBCBB"  # Horizontal thrusters
             else:
                 base_color = "#88C0D0"  # Vertical thrusters
 
-            # Update color based on thrust direction
             if value > 0:
-                color = "#A3BE8C" if "vertical" in self.get_thruster_location(thruster_id) else "#8FBCBB"
+                color = "#A3BE8C" if "inner" in location else "#8FBCBB"
             elif value < 0:
                 color = "#BF616A"
             else:
                 color = base_color
             
-            self.auv_canvas.itemconfigure(label_id-1, fill=color)
+            # Update thruster circle color (assuming circle is label_id - 1)
+            canvas.itemconfigure(label_id - 1, fill=color)
 
+    def update_thruster_display(self):
+        """Update both AUV visualizations"""
+        self.update_thruster_visuals(self.auv_canvas, self.thruster_labels)
+        self.update_thruster_visuals(self.mini_auv_canvas, self.mini_thruster_labels)
 
     def show_settings(self):
         """Switch to the settings frame."""
@@ -394,32 +465,6 @@ class Interface(Node):
         self.target_publisher.publish(msg)
         self.get_logger().info(f'Published new targets: {targets}')
 
-    def update_thruster_display(self):
-        """Update the AUV visualization with current thruster values."""
-        for thruster_id, label_id in self.thruster_labels.items():
-            value = self.thruster_values[thruster_id]
-            self.auv_canvas.itemconfig(label_id, text=f"{value:.2f}")
-            
-            # Update color based on thrust direction
-            if value > 0:
-                color = "#A3BE8C"  # Green for positive thrust
-            elif value < 0:
-                color = "#BF616A"  # Red for negative thrust
-            else:
-                # Default colors based on thruster type
-                if thruster_id in [0, 1]:  # Vertical thrusters
-                    color = "#88C0D0"
-                elif thruster_id in [2, 3]:  # Horizontal thrusters
-                    color = "#8FBCBB"
-                else:  # Corner thrusters
-                    color = "#D08770"
-            
-            # Update thruster circle color
-            self.auv_canvas.itemconfigure(
-                label_id-1,  # Circle is created before text
-                fill=color
-            )
-
     def create_rounded_button(self, text):
         """Create a button with rounded corners and modern styling."""
         button = Button(self.control_frame, text=text, **button_style)
@@ -451,7 +496,6 @@ class Interface(Node):
     def listener_callback_thrusters(self, msg):
         self.thruster_values = list(msg.data)
         self.root.after(0, self.update_thruster_display)
-        self.root.after(0, self.update_thrusters_data, str(msg.data))
 
     def listener_callback_frontFeed(self, msg):
         cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
@@ -468,9 +512,6 @@ class Interface(Node):
 
     def update_target_data(self, data):
         self.target_data_label.config(text=f"Target: {data}")
-
-    def update_thrusters_data(self, data):
-        self.thrusters_data_label.config(text=f"Thrusters Data: {data}")
 
     def update_front_feed(self, tk_image):
         self.front_feed_label.config(image=tk_image)
